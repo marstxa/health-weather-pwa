@@ -1,0 +1,50 @@
+.btn-style {
+  border-color: #b3b4bd;
+  background-color: #b3b4bd;
+  transition: all 0.5s;
+}
+
+.btn-style:hover {
+  box-shadow: inset 5em 0 0 0 #2c2e3a, inset -5em 0 0 0 #2c2e3a;
+  color: #fff;
+}
+
+.btn-style509 {
+  position: relative;
+  background-color: #0a21c0;
+  border-color: #0a21c0;
+  color: #fff;
+}
+
+.btn-style509::before,
+.btn-style509::after {
+  width: 49px;
+  height: 35px;
+  position: absolute;
+  border-radius: 50%;
+  background-color: #4b48cb;
+  transition: all 0.5s ease;
+  transform: scale(0);
+  content: "";
+  z-index: -1;
+}
+
+.btn-style509::before {
+  top: -8px;
+  left: 10%;
+}
+
+.btn-style509::after {
+  bottom: -8px;
+  right: 15%;
+}
+
+.btn-style509:hover {
+  background-color: #4b48cb;
+  border-color: #4b48cb;
+}
+
+.btn-style509:hover::before,
+.btn-style509:hover::after {
+  transform: scale(1);
+}

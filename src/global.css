@@ -1,0 +1,82 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap");
+
+@import "tailwindcss";
+@plugin "daisyui";
+
+@plugin "daisyui/theme" {
+  name: "firstsandwich";
+  default: true;
+  prefersdark: false;
+  color-scheme: "light";
+  --color-base-100: #f5effb;
+  --color-base-200: #f8f4fc;
+  --color-base-300: #e4d5f4;
+  --color-base-content: #141619;
+  --color-primary: #0a21c0;
+  --color-primary-content: oklch(93% 0.034 272.788);
+  --color-secondary: #050a44;
+  --color-secondary-content: oklch(93% 0.034 272.788);
+  --color-accent: #b3b4bd;
+  --color-accent-content: oklch(0% 0 0);
+  --color-neutral: #2c2e3a;
+  --color-neutral-content: oklch(97% 0 0);
+  --color-info: oklch(78% 0.154 211.53);
+  --color-info-content: oklch(30% 0.056 229.695);
+  --color-success: oklch(79% 0.209 151.711);
+  --color-success-content: oklch(26% 0.065 152.934);
+  --color-warning: oklch(75% 0.183 55.934);
+  --color-warning-content: oklch(26% 0.079 36.259);
+  --color-error: oklch(64% 0.246 16.439);
+  --color-error-content: oklch(27% 0.105 12.094);
+  --radius-selector: 0.25rem;
+  --radius-field: 0.5rem;
+  --radius-box: 0.5rem;
+  --size-selector: 0.25rem;
+  --size-field: 0.25rem;
+  --border: 1px;
+  --depth: 1;
+  --noise: 1;
+}
+
+.h1-font {
+  font-size: 4.375rem;
+  font-weight: bold;
+  font-family: "Rubik";
+}
+
+.h2-font {
+  font-size: 2.9rem;
+  font-weight: bold;
+  font-family: "Rubik";
+}
+
+.h3-font {
+  font-size: 1.9rem;
+  font-weight: bold;
+  font-family: "Rubik";
+}
+
+.h5-font {
+  font-size: 1.3rem;
+  font-weight: bold;
+  font-family: "Rubik";
+}
+
+.h6-font {
+  font-size: 1rem;
+  font-weight: bold;
+  font-family: "Rubik";
+}
+
+p,
+label,
+input {
+  font-family: "Inter";
+  font-size: 0.9em;
+}
+
+.btn-text {
+  font-weight: 600;
+  font-family: "Rubik";
+  font-size: 0.98em;
+}
