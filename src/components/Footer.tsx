@@ -4,7 +4,7 @@ import { SiFacebook, SiInstagram, SiLinkedin } from "react-icons/si";
 function Footer({ bgColor }: { bgColor: string }) {
   return (
     <footer
-      className={`w-full h-60 flex flex-row justify-between px-[5%] py-[2%] text-white ${bgColor}`}
+      className={`w-full h-60 relative flex flex-row justify-between px-[5%] py-[2%] text-white ${bgColor} z-105`}
     >
       <div className="w-1/3 h-full flex flex-col justify-end items-start">
         <figure className="w-37 h-37">
