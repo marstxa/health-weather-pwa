@@ -4,10 +4,10 @@ import { SiFacebook, SiInstagram, SiLinkedin } from "react-icons/si";
 function Footer({ bgColor }: { bgColor: string }) {
   return (
     <footer
-      className={`w-full h-60 relative flex flex-row justify-between px-[5%] py-[2%] text-white ${bgColor} z-105`}
+      className={`w-full h-60 max-h-60 relative flex flex-row justify-between items-center px-[5%] py-[2%] text-white ${bgColor} z-105`}
     >
       <div className="w-1/3 h-full flex flex-col justify-end items-start">
-        <figure className="w-37 h-37">
+        <figure className="w-30 h-30 md:w-37 md:h-37">
           <img
             className="w-full h-full object-fit"
             src="/logos/logo-transparent-1.png"
@@ -18,7 +18,7 @@ function Footer({ bgColor }: { bgColor: string }) {
       </div>
 
       <div className="w-1/3 h-full flex justify-center items-center">
-        <button className="btn btn-neutral btn-text w-50 h-14 btn-circle">
+        <button className="btn btn-neutral btn-text w-30 h-10 md:w-50 md:h-14 btn-circle">
           Support Us
         </button>
       </div>

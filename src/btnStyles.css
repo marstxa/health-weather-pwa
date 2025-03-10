@@ -48,3 +48,43 @@
 .btn-style509:hover::after {
   transform: scale(1);
 }
+
+.btn-style510 {
+  position: relative;
+  background-color: #fe1c55;
+  border-color: #fe1c55;
+  color: #fff;
+}
+
+.btn-style510::before,
+.btn-style510::after {
+  width: 49px;
+  height: 35px;
+  position: absolute;
+  border-radius: 50%;
+  background-color: #fe3769;
+  transition: all 0.5s ease;
+  transform: scale(0);
+  content: "";
+  z-index: -1;
+}
+
+.btn-style510::before {
+  top: -8px;
+  left: 10%;
+}
+
+.btn-style510::after {
+  bottom: -8px;
+  right: 15%;
+}
+
+.btn-style510:hover {
+  background-color: #fe3769;
+  border-color: #fe3769;
+}
+
+.btn-style510:hover::before,
+.btn-style510:hover::after {
+  transform: scale(1);
+}

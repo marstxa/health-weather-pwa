@@ -13,7 +13,8 @@ import { Link } from "react-router";
 import Footer from "../components/Footer";
 import AOS from "aos";
 import { useEffect } from "react";
-import { userLocation } from "../components/userLocation";
+import { ToastContainer } from "react-toastify";
+import InstallPrompt from "../components/InstallBanner";
 
 function Index() {
   useEffect(() => {
@@ -31,7 +32,7 @@ function Index() {
               <h1 data-aos="fade-down" className="h1-font">
                 IMPROVING PATIENTS HEALTH <br /> IT'S OUR PRIORITY
               </h1>
-              <p data-aos="fade-down" className="px-[20%]">
+              <p data-aos="fade-down" className="md:px-[20%]">
                 Lorem ipsum odor amet, consectetuer adipiscing elit. Potenti
                 semper elit felis; fermentum facilisis quis platea. Eu rutrum
                 vehicula non posuere leo nulla maximus. Consequat semper
@@ -50,13 +51,13 @@ function Index() {
             </div>
           </section>
 
-          <section className="flex flex-row justify-between items-center w-full min-h-screen">
+          <section className="flex w-full min-h-screen flex-col justify-center items-center md:flex-row md:justify-between md:items-center ">
             <div
               data-aos="fade-right"
-              className="w-1/2 flex flex-col items-start justify-center gap-8"
+              className="flex flex-col items-center text-center md:text-start justify-center gap-8 w-full mt-20 md:w-1/2 md:items-start"
             >
               <h2 className="h2-font">Who we are</h2>
-              <p className="pr-30">
+              <p className="md:pr-[15%]">
                 Lorem ipsum odor amet, consectetuer adipiscing elit. Potenti
                 semper elit felis; fermentum facilisis quis platea. Eu rutrum
                 vehicula non posuere leo nulla maximus. Consequat semper
@@ -78,34 +79,34 @@ function Index() {
             </div>
             <figure
               data-aos="zoom-out-top-left"
-              className="w-1/2 bg-secondary min-h-screen rounded-full relative left-50 flex flex-col items-start justify-center"
+              className="mt-20 md:mt-0 w-101 h-101 sm:w-126 sm:h-1/2 md:h-125 md:w-125 lg:w-1/2 lg:h-screen bg-secondary rounded-full md:relative md:left-50 flex flex-col items-center md:items-start justify-center"
             >
               <img
-                className="w-125 h-125 object-cover rounded-full"
+                className=" w-100 h-100 sm:w-125 sm:h-125 object-cover rounded-full"
                 src="/images/female-doctor.jpg"
                 alt="female-doctor"
               />
             </figure>
           </section>
-          <section className="flex flex-row justify-between items-center w-full min-h-screen">
+          <section className="mt-20 md:mt-0 flex flex-col-reverse justify-center md:flex-row md:justify-between items-center w-full min-h-screen">
             <figure
               data-aos="zoom-out-top-right"
-              className="w-1/2 bg-secondary min-h-screen rounded-full relative right-50 flex flex-col items-end justify-center"
+              className="mt-20 md:mt-0 w-101 h-101 sm:w-126 sm:h-126 md:w-125 md:h-125 lg:w-1/2 bg-secondary lg:h-screen rounded-full relative md:right-50 flex flex-col items-end justify-center"
             >
               <img
-                className="w-125 h-125 object-cover rounded-full"
+                className="w-100 h-100 sm:w-125 sm:h-125 object-cover rounded-full"
                 src="/images/meteorology.jpg"
                 alt="meteorogoly"
               />
             </figure>
             <div
               data-aos="fade-left"
-              className="w-1/2 flex flex-col items-end justify-center gap-8 text-end"
+              className="w-full md:w-1/2 flex flex-col items-center md:items-end justify-center gap-8 text-center md:text-end"
             >
               <h2 className="h2-font">
                 How weather affects <br /> your health
               </h2>
-              <p className="pl-30">
+              <p className="md:pl-[15%]">
                 Lorem ipsum odor amet, consectetuer adipiscing elit. Potenti
                 semper elit felis; fermentum facilisis quis platea. Eu rutrum
                 vehicula non posuere leo nulla maximus. Consequat semper
@@ -135,27 +136,33 @@ function Index() {
           </section>
           <section
             data-aos="zoom-in"
-            className="bg-primary w-full text-white px-[5%] py-[2.5%] rounded-lg mt-30"
+            className="bg-primary w-full min-h-40 text-white px-[5%] py-[2.5%] rounded-lg mt-30"
           >
             <h3 className="h3-font">Results</h3>
             <div className="p-[2.5%] flex flex-row justify-evenly w-full items-center">
               <div className="flex flex-col max-w-80 items-start justify-center gap-4">
-                <h1 className="text-7xl font-extrabold font-[Rubik]">92%</h1>
-                <p>
+                <h1 className="text-5xl md:text-7xl font-extrabold font-[Rubik]">
+                  92%
+                </h1>
+                <p className="hidden md:block">
                   Lorem ipsum odor amet, consectetuer adipiscing elit. Potenti
                   semper elit felis; fermetis.
                 </p>
               </div>
               <div className="flex flex-col max-w-80 items-start justify-center gap-4">
-                <h1 className="text-7xl font-extrabold font-[Rubik]">16%</h1>
-                <p>
+                <h1 className="text-5xl md:text-7xl font-extrabold font-[Rubik]">
+                  16%
+                </h1>
+                <p className="hidden md:block">
                   Lorem ipsum odor amet, consectetuer adipiscing elit. Potenti
                   semper elit felis; fermetis.
                 </p>
               </div>
               <div className="flex flex-col max-w-80 items-start justify-center gap-4">
-                <h1 className="text-7xl font-extrabold font-[Rubik]">57%</h1>
-                <p>
+                <h1 className="text-5xl md:text-7xl font-extrabold font-[Rubik]">
+                  57%
+                </h1>
+                <p className="hidden md:block">
                   Lorem ipsum odor amet, consectetuer adipiscing elit. Potenti
                   semper elit felis; fermetis.
                 </p>
@@ -177,19 +184,24 @@ function Index() {
           <h3 data-aos="fade-down" className="h3-font">
             Sponsors
           </h3>
-          <div data-aos="fade-down" className="grid grid-cols-4 gap-24">
-            <SiStarbucks size={60} />
-            <SiUber size={60} />
-            <SiDiscord size={60} />
-            <SiAirbnb size={60} />
-            <SiTesla size={60} />
-            <SiGoogle size={60} />
-            <SiUnitednations size={60} />
-            <SiNike size={60} />
+          <div
+            data-aos="fade-down"
+            className="px-[10%] md:px-0 grid grid-cols-4 gap-14 md:gap-24"
+          >
+            <SiStarbucks className="w-10 h-10 md:w-15 md:h-15" />
+            <SiUber className="w-10 h-10 md:w-15 md:h-15" />
+            <SiDiscord className="w-10 h-10 md:w-15 md:h-15" />
+            <SiAirbnb className="w-10 h-10 md:w-15 md:h-15" />
+            <SiTesla className="w-10 h-10 md:w-15 md:h-15" />
+            <SiGoogle className="w-10 h-10 md:w-15 md:h-15" />
+            <SiUnitednations className="w-10 h-10 md:w-15 md:h-15" />
+            <SiNike className="w-10 h-10 md:w-15 md:h-15" />
           </div>
         </section>
       </main>
+      <InstallPrompt />
       <Footer bgColor={"bg-secondary"} />
+      <ToastContainer position="top-center" />
     </div>
   );
 }
