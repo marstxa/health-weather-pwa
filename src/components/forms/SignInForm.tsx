@@ -1,5 +1,9 @@
 import { useForm, SubmitHandler } from "react-hook-form";
-import { Link } from "react-router";
+import { Link, useNavigate } from "react-router";
+import { db, auth } from "../../config/firebase";
+import { signInWithEmailAndPassword } from "firebase/auth";
+import { doc, getDoc } from "firebase/firestore";
+import { toast } from "react-toastify";
 
 type formFields = {
   email: string;
@@ -7,7 +11,51 @@ type formFields = {
 };
 
 function SignInForm() {
-  const onSubmit: SubmitHandler<formFields> = () => {};
+  const navigate = useNavigate();
+
+  const onSubmit: SubmitHandler<formFields> = async (data) => {
+    const toastId = toast.loading("Signing In...");
+    let welcomeMessage: string = "Welcome back";
+
+    try {
+      const userCredential = await signInWithEmailAndPassword(
+        auth,
+        data.email,
+        data.password
+      );
+
+      const user = userCredential.user;
+
+      const userRef = doc(db, "#user_id", user.uid);
+      const userSnap = await getDoc(userRef);
+
+      if (userSnap.exists()) {
+        const userData = userSnap.data();
+        welcomeMessage = `Welcome back, ${userData.name}`;
+      }
+
+      toast.update(toastId, {
+        render: welcomeMessage,
+        type: "success",
+        isLoading: false,
+        position: "top-center",
+        autoClose: 2000,
+      });
+
+      setTimeout(() => {
+        navigate("/");
+      }, 2000);
+    } catch (err) {
+      console.error(err);
+      toast.update(toastId, {
+        render: `Error: ${err}`,
+        type: "error",
+        isLoading: false,
+        position: "top-center",
+        autoClose: 2000,
+      });
+    }
+  };
 
   const {
     register,

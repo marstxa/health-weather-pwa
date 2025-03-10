@@ -13,6 +13,7 @@ import { Link } from "react-router";
 import Footer from "../components/Footer";
 import AOS from "aos";
 import { useEffect } from "react";
+import { userLocation } from "../components/userLocation";
 
 function Index() {
   useEffect(() => {

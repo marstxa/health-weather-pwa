@@ -5,6 +5,7 @@ import SignIn from "./pages/SignIn";
 import SignUp from "./pages/SignUP";
 import Info from "./pages/Info";
 import Dashboard from "./pages/Dashboard";
+import ForgotPassword from "./pages/ForgotPassword";
 
 const route = createBrowserRouter([
   { path: "/", element: <Index /> },
@@ -12,6 +13,7 @@ const route = createBrowserRouter([
   { path: "signUp", element: <SignUp /> },
   { path: "/info", element: <Info /> },
   { path: "/dashboard", element: <Dashboard /> },
+  { path: "/resetPassword", element: <ForgotPassword /> },
 ]);
 
 function App() {

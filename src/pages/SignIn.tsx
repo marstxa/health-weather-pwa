@@ -4,6 +4,7 @@ import Footer from "../components/Footer";
 import SignInForm from "../components/forms/SignInForm";
 import AOS from "aos";
 import { useEffect } from "react";
+import { ToastContainer } from "react-toastify";
 
 function SignIn() {
   useEffect(() => {
@@ -56,6 +57,7 @@ function SignIn() {
           <SignInForm />
         </div>
       </main>
+      <ToastContainer position="top-center" />
       <Footer bgColor="bg-[#000000]" />
     </div>
   );

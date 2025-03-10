@@ -1,4 +1,11 @@
 import { useForm, SubmitHandler } from "react-hook-form";
+import { auth, db } from "../../config/firebase";
+import { createUserWithEmailAndPassword } from "firebase/auth";
+import { setDoc, doc } from "firebase/firestore";
+import { userLocation } from "../userLocation";
+import { useEffect, useState } from "react";
+import { toast } from "react-toastify";
+import { useNavigate } from "react-router";
 
 type formFields = {
   name: string;
@@ -9,7 +16,66 @@ type formFields = {
 };
 
 function SignUpForm() {
-  const onSubmit: SubmitHandler<formFields> = () => {};
+  const [getLocation, setGetLocation] = useState<string>("Private");
+  const date = new Date();
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    userLocation()
+      .then((city: string) => {
+        setGetLocation(city);
+
+        console.log("User Location", getLocation);
+      })
+      .catch((err: Error) => {
+        console.error(err);
+      });
+  });
+
+  const onSubmit: SubmitHandler<formFields> = async (data) => {
+    const toastId = toast.loading("Creating account...");
+
+    try {
+      const userCredential = await createUserWithEmailAndPassword(
+        auth,
+        data.email,
+        data.password
+      );
+
+      const user = userCredential.user;
+
+      await setDoc(doc(db, "#user_id", user.uid), {
+        name: data.name,
+        surname: data.surname,
+        email: data.email,
+        location: getLocation,
+        healthCondition: data.additionalInfo,
+        signUpDate: date.toLocaleDateString(),
+      });
+
+      toast.update(toastId, {
+        render: "Account created succesfully",
+        position: "top-center",
+        type: "success",
+        isLoading: false,
+        autoClose: 2000,
+      });
+
+      setTimeout(() => {
+        navigate("/");
+      }, 2000);
+    } catch (err) {
+      console.error(err);
+
+      toast.update(toastId, {
+        render: `Error: ${err}`,
+        position: "top-center",
+        type: "error",
+        isLoading: false,
+        autoClose: 2000,
+      });
+    }
+  };
 
   const {
     register,
